@@ -12,6 +12,7 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
+	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	"github.com/kbinani/screenshot"
 )
@@ -22,6 +23,8 @@ func main() {
 	a := app.New()
 	w := a.NewWindow("App Luces")
 	w.Resize(windowSize(1))
+
+	a.Settings().SetTheme(theme.DarkTheme())
 
 	showMainScreen(w)
 	w.ShowAndRun()
