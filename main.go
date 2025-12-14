@@ -41,7 +41,7 @@ func main() {
 	l := widget.NewHyperlink("https://github.com/EironnESP/app_luces", &url.URL{Scheme: "https", Host: "github.com", Path: "/EironnESP/app_luces"})
 	l.Alignment = fyne.TextAlignCenter
 
-	infoContainer := container.NewHBox(layout.NewSpacer(), label, l, layout.NewSpacer())
+	infoContainer := container.NewVBox(layout.NewSpacer(), label, l, layout.NewSpacer())
 
 	// Crear el layout principal con los tres botones ocupando toda la pantalla
 	mainContent := container.NewGridWithColumns(1,
@@ -96,15 +96,15 @@ func showBlueScreen(w fyne.Window) {
 
 func showMainScreen(w fyne.Window) {
 	// Recrear la pantalla principal
-	btnAzul := widget.NewButton("azul", func() {
+	btnAzul := widget.NewButton("AZUL POLICIA", func() {
 		showBlueScreen(w)
 	})
 
-	btnAmarillo := widget.NewButton("amarillo", func() {
+	btnAmarillo := widget.NewButton("AMARILLO PELIGRO", func() {
 		showYellowScreen(w)
 	})
 
-	btnTexto := widget.NewButton("texto", func() {
+	btnTexto := widget.NewButton("TEXTO PARPADEANTE", func() {
 		showTextInputScreen(w)
 	})
 
