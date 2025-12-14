@@ -23,35 +23,7 @@ func main() {
 	w := a.NewWindow("App Luces")
 	w.Resize(windowSize(1))
 
-	// Crear los botones de la pantalla principal
-	btnAzul := widget.NewButton("AZUL POLICIA", func() {
-		showBlueScreen(w)
-	})
-
-	btnAmarillo := widget.NewButton("AMARILLO PELIGRO", func() {
-		showYellowScreen(w)
-	})
-
-	btnTexto := widget.NewButton("TEXTO PARPADEANTE", func() {
-		showTextInputScreen(w)
-	})
-
-	label := widget.NewLabel("Código fuente:")
-	label.Alignment = fyne.TextAlignCenter
-	l := widget.NewHyperlink("https://github.com/EironnESP/app_luces", &url.URL{Scheme: "https", Host: "github.com", Path: "/EironnESP/app_luces"})
-	l.Alignment = fyne.TextAlignCenter
-
-	infoContainer := container.NewVBox(layout.NewSpacer(), label, l, layout.NewSpacer())
-
-	// Crear el layout principal con los tres botones ocupando toda la pantalla
-	mainContent := container.NewGridWithColumns(1,
-		btnAzul,
-		btnAmarillo,
-		btnTexto,
-		infoContainer,
-	)
-
-	w.SetContent(mainContent)
+	showMainScreen(w)
 	w.ShowAndRun()
 }
 
@@ -95,7 +67,6 @@ func showBlueScreen(w fyne.Window) {
 }
 
 func showMainScreen(w fyne.Window) {
-	// Recrear la pantalla principal
 	btnAzul := widget.NewButton("AZUL POLICIA", func() {
 		showBlueScreen(w)
 	})
@@ -108,10 +79,19 @@ func showMainScreen(w fyne.Window) {
 		showTextInputScreen(w)
 	})
 
+	label := widget.NewLabel("Código fuente:")
+	label.Alignment = fyne.TextAlignCenter
+	l := widget.NewHyperlink("https://github.com/EironnESP/app_luces", &url.URL{Scheme: "https", Host: "github.com", Path: "/EironnESP/app_luces"})
+	l.Alignment = fyne.TextAlignCenter
+
+	infoContainer := container.NewVBox(layout.NewSpacer(), label, l, layout.NewSpacer())
+
+	// Crear el layout principal con los tres botones ocupando toda la pantalla
 	mainContent := container.NewGridWithColumns(1,
 		btnAzul,
 		btnAmarillo,
 		btnTexto,
+		infoContainer,
 	)
 
 	w.SetContent(mainContent)
